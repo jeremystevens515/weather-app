@@ -60,20 +60,26 @@ export default function Body() {
 	}
 
 	return (
-		<div className="">
-			<form>
-				<label>Search for a City</label>
+		<div className="grid mx-8 my-5">
+			<form className="grid gap-3">
+				<label className="text-2xl">Search for a City</label>
 				<input
 					id="search"
 					type="text"
 					onChange={(event) => setSearch(event.target.value)}
+					className="border-2 border-neutral rounded p-1 pl-3"
+					placeholder="Atlanta"
 				/>
-				<button onClick={getCoordinates}>Search</button>
+				<button 
+					onClick={getCoordinates}
+					className="btn btn-sm rounded"
+				>Search</button>
 			</form>
+			<hr className="my-2 h-0.5 bg-neutral-focus"/>
 			<div>
 				<ul>
 					{history.map((city, i) => {
-						return <li key={i}>{city}</li>;
+						return <li key={i} className="btn btn-sm rounded">{city}</li>;
 					})}
 				</ul>
 			</div>
