@@ -6,6 +6,9 @@ module.exports = {
 			colors: {
 				'dark': '#4A5E75',
 				'bluish': '#63778D'
+			},
+			fontFamily: {
+				'sans': ['Quando']
 			}
 		},
 	},

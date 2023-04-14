@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// import { Search } from "../utils/search";
 import Weather from "./Weather";
 
 export default function Body() {
@@ -13,31 +12,12 @@ export default function Body() {
 		console.log('No Location');
 	}
 
-	const getCoordinates = (event) => {
-		event.preventDefault();
-		const geoCodingURL =
-			"https://api.openweathermap.org/geo/1.0/direct?q=" +
-			search +
-			"&limit=5&appid=47321296effd62eab8d0754b0a9e9a55";
-
-		fetch(geoCodingURL)
-			.then(function (response) {
-				return response.json();
-			})
-			.then(function (data) {
-				console.log(data);
-				setCityCoords({
-					latitude: data[0].lat,
-					longitude: data[0].lon,
-				});
-			});
-	};
-
 	function getPosition(position) {
 		const lat = position.coords.latitude;
 		const long = position.coords.longitude;
 		// getWeather(lat, long);
 	}
+	
 	function getDefault() {
 		const url  = "https://api.openweathermap.org/data/2.5/weather?q=Atlanta&appid=1ff1b9e8930bbe84b844222ea3d5a398&units=imperial";
 		fetch(url).then(function (response) {
@@ -74,7 +54,7 @@ export default function Body() {
 					/>
 					<button 
 						onClick={getCoordinates}
-						className="btn btn-sm rounded"
+						className="btn btn-sm rounded font-medium"
 					>Search</button>
 				</form>
 				<hr className="my-2 h-0.5 bg-neutral-focus"/>
