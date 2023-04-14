@@ -1,16 +1,29 @@
 import React, { useState } from "react";
+// import { Search } from "../utils/search";
 
 export default function Body() {
 	const [search, setSearch] = useState("state");
 	const [cityCoords, setCityCoords] = useState({});
 	const [history, setHistory] = useState([]);
 
-	const searchCity = (event) => {
+	const getCoordinates = (event) => {
 		event.preventDefault();
-		//get coordinates
-		//get weather
-		//if weather response 200, setHistory
-		setHistory([...history, search]);
+		const geoCodingURL =
+			"https://api.openweathermap.org/geo/1.0/direct?q=" +
+			search +
+			"&limit=5&appid=47321296effd62eab8d0754b0a9e9a55";
+
+		fetch(geoCodingURL)
+			.then(function (response) {
+				return response.json();
+			})
+			.then(function (data) {
+				console.log(data);
+				setCityCoords({
+					latitude: data[0].lat,
+					longitude: data[0].lon,
+				});
+			});
 	};
 
 	return (
@@ -22,7 +35,7 @@ export default function Body() {
 					type="text"
 					onChange={(event) => setSearch(event.target.value)}
 				/>
-				<button onClick={searchCity}>Search</button>
+				<button onClick={getCoordinates}>Search</button>
 			</form>
 			<div>
 				<ul>
