@@ -2,11 +2,11 @@ import { useState } from "react";
 import { AsyncPaginate } from "react-select-async-paginate";
 import { geoApiUrl, geoApiOptions } from "../utils/api";
 
-export default function Search({ returnSearch }) {
+export default function Search({ returnCoordinates }) {
 	const [search, setSearch] = useState(null);
 	const handleOnChange = (searchData) => {
 		setSearch(searchData);
-		returnSearch(searchData);
+		returnCoordinates(searchData);
 	};
 
 	const loadOptions = (inputValue) => {
