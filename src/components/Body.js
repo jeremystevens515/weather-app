@@ -60,14 +60,14 @@ export default function Body() {
 	}
 
 	return (
-		<div className="grid mx-8 my-5">
+		<div className="grid px-8 py-5 bg-base-200">
 			<form className="grid gap-3">
 				<label className="text-2xl">Search for a City</label>
 				<input
 					id="search"
 					type="text"
 					onChange={(event) => setSearch(event.target.value)}
-					className="border-2 border-neutral rounded p-1 pl-3"
+					className="border-2 border-neutral rounded bg-base-200 p-1 pl-3"
 					placeholder="Atlanta"
 				/>
 				<button 
