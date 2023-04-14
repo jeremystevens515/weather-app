@@ -2,10 +2,14 @@ import React, { useState } from "react";
 
 export default function Body() {
 	const [search, setSearch] = useState("state");
+	const [cityCoords, setCityCoords] = useState({});
 	const [history, setHistory] = useState([]);
 
 	const searchCity = (event) => {
 		event.preventDefault();
+		//get coordinates
+		//get weather
+		//if weather response 200, setHistory
 		setHistory([...history, search]);
 	};
 
