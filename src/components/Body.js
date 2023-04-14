@@ -60,33 +60,35 @@ export default function Body() {
 	}
 
 	return (
-		<div className="grid px-8 py-5 bg-base-200">
-			<form className="grid gap-3">
-				<label className="text-2xl">Search for a City</label>
-				<input
-					id="search"
-					type="text"
-					onChange={(event) => setSearch(event.target.value)}
-					className="border-2 border-neutral rounded bg-base-200 p-1 pl-3"
-					placeholder="Atlanta"
-				/>
-				<button 
-					onClick={getCoordinates}
-					className="btn btn-sm rounded"
-				>Search</button>
-			</form>
-			<hr className="my-2 h-0.5 bg-neutral-focus"/>
-			<div>
-				<ul>
-					{history.map((city, i) => {
-						return <li key={i} className="btn btn-sm rounded">{city}</li>;
-					})}
-				</ul>
-			</div>
+		<div className="h-screen">
+			<div className="grid px-8 py-5">
+				<form className="grid gap-3">
+					<label className="text-2xl">Search for a City</label>
+					<input
+						id="search"
+						type="text"
+						onChange={(event) => setSearch(event.target.value)}
+						className="border-2 border-neutral rounded p-1 pl-3"
+						placeholder="Atlanta"
+					/>
+					<button 
+						onClick={getCoordinates}
+						className="btn btn-sm rounded"
+					>Search</button>
+				</form>
+				<hr className="my-2 h-0.5 bg-neutral-focus"/>
+				<div>
+					<ul>
+						{history.map((city, i) => {
+							return <li key={i} className="btn btn-sm rounded">{city}</li>;
+						})}
+					</ul>
+				</div>
 
-			<div>current weather display</div>
-			<div>forecast</div>
-			<div>map</div>
+				<div>current weather display</div>
+				<div>forecast</div>
+				<div>map</div>
+			</div>
 		</div>
 	);
 }
