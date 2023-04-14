@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 // import { Search } from "../utils/search";
+import Weather from "./Weather";
 
 export default function Body() {
 	const [search, setSearch] = useState("state");
@@ -84,8 +85,7 @@ export default function Body() {
 						})}
 					</ul>
 				</div>
-
-				<div>current weather display</div>
+				<Weather />
 				<div>forecast</div>
 				<div>map</div>
 			</div>

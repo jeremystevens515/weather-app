@@ -1,6 +1,5 @@
 import Header from "./components/Header";
 import Body from "./components/Body";
-import Search from "./components/Search";
 import Footer from "./components/Footer";
 
 export default function App() {
