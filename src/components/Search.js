@@ -11,7 +11,7 @@ export default function Search({ returnCoordinates }) {
 
 	const loadOptions = (inputValue) => {
 		return fetch(
-			`${geoApiUrl}/cities?namePrefix=${inputValue}&limit=10`,
+			`${geoApiUrl}/cities?countryIds=US&namePrefix=${inputValue}&minPopulation=1000&limit=10`,
 			geoApiOptions
 		)
 			.then((response) => response.json())
@@ -33,7 +33,8 @@ export default function Search({ returnCoordinates }) {
 
 	return (
 		<AsyncPaginate
-			placeholder="Search for city"
+			placeholder="Atlanta"
+            className="border-2 border-neutral rounded-lg"
 			debounceTimeout={600}
 			value={search}
 			onChange={handleOnChange}
